@@ -1,0 +1,140 @@
+<div class="msg" id="listMessage" style="padding:15px 20px;margin:0px;">
+    <div class="panel panel-default list-custom-template">
+        <div class="custom-panel-radius panel-body list-temp-heading">
+            <h4 class="list-heading ie10-flexalign"> <img src="images/default/active_logo.png" class="img-responsive" width="35">{{payload.title}}</h4>
+        </div>
+
+         <div class="custom-panel-radius panel-body alertMessageSuccess">
+            <div class="row">
+                <div class="col-md-12 flex-display">
+                    <div class="buttonRight flexSpaceBetween">
+                        <div class="margin-auto">
+                            <h5 class="alert-heading">
+                                <img src="images/default/green_tick.png" class="alertSucccessIcon" width="20">
+                                {{text}}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom-panel-radius panel-body panel-row-btn">
+            <div class="row">
+                <div class="col-md-12 flex-parent">
+                   
+                        <div class="flex-child long-and-truncated label-view">
+                            <label class="user-label">TELECOM</label>
+                        </div>
+                        <div class="flex-child short-and-fixed values-view">
+                            <h5 class="user-name">{{payload.serviceProvider}}</h5>
+                            <h4 class="account-details">{{payload.consumerNumber}}</h4>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="custom-panel-radius panel-body panel-row-btn">
+            <div class="row">
+                <div class="col-md-12 flex-parent">
+                   
+                        <div class="flex-child long-and-truncated label-view">
+                            <label class="user-label">AMOUNT</label>
+                        </div>
+                        <div class="flex-child short-and-fixed values-view">
+                            <h5 class="user-name">{{payload.currency}} {{payload.amount}}</h5>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="custom-panel-radius panel-body panel-row-btn">
+            <div class="row">
+                <div class="col-md-12 flex-parent">
+                  
+                        <div class="flex-child long-and-truncated label-view">
+                            <label class="user-label">DEBIT FROM</label>
+                        </div>
+                        <div class="flex-child short-and-fixed values-view">
+                            <h5 class="user-name">{{payload.debitAccountName}}</h5>
+                            <h4 class="account-details">{{payload.debitAccountNumber}}</h4>
+                        </div>
+                 
+                </div>
+            </div>
+        </div>
+        <div class="custom-panel-radius panel-body panel-row-btn">
+            <div class="row">
+                <div class="col-md-12 flex-parent">
+                   
+                        <div class="flex-child long-and-truncated label-view">
+                            <label class="user-label">REFERENCE NUMBER</label>
+                        </div>
+                        <div class="flex-child short-and-fixed values-view">
+                            <h5 class="user-name">{{payload.referenceNumber}}</h5>
+                            <h4 class="account-details">{{payload.date}} {{payload.time}}</h4>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+.alertMessageSuccess
+{
+    background-color: #5DD60F;
+    color: #fff;
+    text-align: center;
+}
+.alert-heading
+{
+    margin:0;
+}
+.margin-auto
+{
+    margin:auto !important;
+}
+.alert-heading
+{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.alertSucccessIcon
+{
+    margin-right: 5px;
+}
+.user-name, .account-details
+{
+    margin:0;
+    margin-top: 3px;
+}
+.label-view
+{
+    margin-right: 10px;
+}
+.user-label
+{
+    color: #808080;
+    font-size: 10px;
+    margin:0;
+    font-weight: bold;
+}
+.user-name {
+    color: #555555;
+    font-size: 12px;
+    margin: 0;
+    font-weight: bold;
+}
+.account-details {
+    color: #808080;
+    font-size: 11px;
+}
+.flex-center-align
+{
+    display: flex;
+    align-items: center;
+}
+</style>

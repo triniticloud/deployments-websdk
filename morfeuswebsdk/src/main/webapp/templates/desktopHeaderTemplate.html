@@ -1,0 +1,27 @@
+<header class="chat-head chat-head-desktop" id="chatbox-header">
+    <section class="chat-heading">
+        <h3 class="heading-name" style="position:relative;">
+            <span class="pull-left">
+                <!-- <img src="images/default/header-logo.png" width="43" onclick="hideChatBox(event)"> -->
+            </span>
+            <span id="headingText">
+                <img src="images/default/active-header-logo.png" width="25" onclick="hideChatBox(event)"> {{i18n 'BOT_HEADER'}}
+            </span>
+
+            <span class="pull-right openicon">
+                <span class="minimize">
+                    <img src="images/default/minimize.svg" onclick="hideChatBox(event)">
+                </span>
+                <span class="closex">
+                    <img id="chatBoxLogout" src="images/default/close.svg" onclick="logOutChat(event)">
+                </span>
+            </span>
+        </h3>
+    </section>
+</header>
+<div class="lastLogin">
+    <div class="secure-login">
+        <span class="secureLogin"><img src="images/default/lock_icon.svg">{{i18n 'SECURED_LOGIN'}} </span>
+        <span id="lastLogin">Your last login was on 06/27/2017 12:53:31</span>
+    </div>
+</div>

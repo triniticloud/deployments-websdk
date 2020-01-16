@@ -1,0 +1,85 @@
+
+
+{{#if data}}
+<div class="msg" id="listMessage" style="padding:15px 20px;margin:0px;">
+    {{#each data}}
+    
+    <div class="panel panel-default button-div single-card">
+        <div class="panel-heading card-image">
+            <div class="carousel slide">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        {{#if image}}
+                         <img src="{{image}}" class="img-responsive">
+                        {{/if}}                       
+                        {{#with account}} 
+                        <div class="carousel-caption">
+                            <p class="card-number">{{accountNumber}}</p>
+                            {{#with balance}}
+                            <p class="full-price-row">{{currency}}
+                                <span class="price-bold-txt">{{amount}}</span>
+                            </p>
+                            {{/with}}
+                        </div>
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+           
+            <p class="account-number">{{subTitle}}</p>
+        </div>
+        {{/each}}
+
+        {{#each buttons}}
+            <button type="button" data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary btn-sm btn-block" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">{{text}}</button>
+        {{/each}}
+    </div>
+    
+</div>
+{{/if}}
+<style>
+.single-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.single-card .card-image {
+    background-color: #fff;
+}
+
+.single-card .card-image p {
+    margin: 0;
+    font-size: 13px;
+    color: #4D4D4D;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.single-card .card-image .carousel-caption
+{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0px 10px;
+}
+.single-card .card-image .card-number
+{
+        color: #fff;
+    letter-spacing: 3px;
+    margin-top: 30%;
+    font-size: 14px;
+}
+
+.full-price-row {
+    color: #fff;
+    text-align: right;
+    margin-top: 20% !important;
+}
+
+.price-bold-txt
+{
+    font-size: 18px;
+    color: #fff;
+}
+</style>

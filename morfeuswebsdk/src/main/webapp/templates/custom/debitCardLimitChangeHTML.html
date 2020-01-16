@@ -1,0 +1,94 @@
+<style>
+    .debit-limit hr{
+        border-top:1px solid #000;
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+    .debit-limit h5{
+        font-weight:bold;
+        font-size:13px;
+    }
+    .debit-limit .panel-body{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .debit-limit .btn{
+        padding: 0;
+        border-radius : 0px;
+        color : rgb(204, 28, 93);
+        background : none;
+        border: none;
+    }
+    .mb_sliderBar{
+        width: 100%;
+        height: 10px;
+    }
+    .mb_sliderEnd, 
+    .mb_sliderStart, 
+    .mb_sliderValue{
+        display: none !important;
+    }
+    .mb_sliderHandler{
+        cursor: pointer !important;
+    }
+    .mb_sliderBar{
+        border-radius: 11px !important;
+    }
+    .mb_sliderRange {
+        border-radius: 11px !important;
+    }
+</style>
+<div id="cards-{{payload.randId}}" class="container-fluid debit-limit">
+    <div id="cardsImage-{{payload.randId}}" class="slider mobile-display-swipe center" style="padding: 0px 5px !important;">
+        <div class="panel panel-default button-div border-radius-top-20">
+            <div class="panel-body">
+                <div class="row" style="padding: 0px 12px;">
+                    <div class="col-xs-12">
+                        <h5 style="margin-bottom: 0px;">{{payload.title}}</h5>
+                    </div>
+                </div>
+                <hr />
+                {{#if payload.limits}}
+                    {{#each payload.limits}}
+                        <h5 class="text-center" style="margin-bottom:0;">{{this.title}}</h5>
+                        {{#each this.limit}}
+                            <div class="row" style="padding: 0px 12px;" >
+                                <div class="col-xs-12">
+                                    <h5 style="margin-bottom: 15px;">{{this.name}}</h5>
+                                    <div id="{{id}}" style="width:100%;">
+                                        <div class="mb_slider" data-property="{
+                                            startAt : {{this.currentLmt}},
+                                            minVal : 0,
+                                            maxVal : {{this.maxLmt}},
+                                            grid : 1000,
+                                            showVal : true,
+                                            labelPos : 'top',
+                                            rangeColor : '#CC1C5D',
+                                            negativeColor : '#ccc'
+                                        }">
+                                        </div>
+                                    </div>
+                                    <span class="debit-limit pull-left" style="font-size:10px;margin-top: -13px;">Rs.0</span>
+                                    <span class="debit-limit pull-right" style="font-size:11px;margin-top: -13px;">Rs.{{this.maxLmt}}</span>
+                                </div>
+                            </div>
+                        {{/each}}
+                        <hr/>
+                    {{/each}}
+                {{/if}}
+                {{#if buttons}}
+                    {{#each buttons}}
+                        <button type="button" data-button-lifecycle="{{this.allowMultipleClicks}}" data-radio="{{this.radio}}" data-type="{{this.action}}"  data-value="{{stringify this.payload}}" class="btn btn-primary btn-block" onclick="disableAllCardButtons(this);extractSliderValues(this);">
+                            Set Limit
+                        </button>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        initializeSliderLabels();
+    });
+</script>

@@ -1,0 +1,31 @@
+<div class="modal-dialog modalWidth">
+                <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">{{i18n 'DEBUG_INFO'}}</h4>
+        </div>
+        <div class="modal-body">
+            <div style="display: none;">
+                <p>
+                    <span>{{i18n 'INTENT'}} : </span>
+                    <span id='intent' style="word-wrap: break-word;"></span>
+                </p>
+                <p>
+                    <span>{{i18n 'SUBINTENT'}} : </span>
+                    <span id='subIntent' style="word-wrap: break-word;"></span>
+                </p>
+                <p>
+                    <span>{{i18n 'ENTITIES'}} : </span>
+                    <span id='entities' style="word-wrap: break-word;"></span>
+                </p>
+            </div>
+
+            <ul class="nav nav-tabs" id="debugTabHeads">
+            </ul>
+
+            <div class="tab-content" id="debugTabContents">
+            </div>
+        </div>
+    </div>
+</div>

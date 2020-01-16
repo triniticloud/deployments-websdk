@@ -1,0 +1,36 @@
+{
+  "short_name": "Active Bank",
+  "background_color": "#fff", 
+  "theme_color": "#2426a4",
+  "name": "Active Virtual Assistant",
+  "icons": [
+    {
+      "src": "img/ahax72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "img/ahax96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/ahax144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "img/ahax192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/ahax512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://morfeus-dev.active.ai/morfeuswebsdk/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

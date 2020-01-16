@@ -1,0 +1,21 @@
+
+<div id="emojibox" class="emoji-box">
+
+        <table>
+            <tbody>
+                {{#each emojis}}
+                <tr onclick="addEmoji(event)">
+                    {{#each this}}
+                    <td data-emoji='{{this}}'>{{{this}}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="arrow" style="display:none;">
+    </div>
+    <button class="image-button emoji" id="emojiBtn" type="button" onclick="toggleEmojiBox()" style="cursor: pointer;">
+    </button>

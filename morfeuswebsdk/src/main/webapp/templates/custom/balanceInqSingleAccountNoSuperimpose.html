@@ -1,0 +1,85 @@
+
+
+{{#if data}}
+<div class="msg" id="listMessage" style="padding:15px 20px;margin:0px;">
+    {{#each data}}
+    
+    <div class="panel panel-default button-div single-card-bottom-bar">
+        <div class="panel-heading card-image">
+            {{#if image}}
+                    <img src="{{image}}" class="img-responsive">
+            {{/if}}   
+            
+            {{#with account}} 
+            <p class="card-number">Your account number is {{accountNumber}}</p>
+                {{#with balance}}
+                <p class="account-number">Your balance is {{currency}} {{amount}}</p>
+                {{/with}}
+            {{/with}}
+
+        </div>
+        {{/each}}
+
+        {{#each buttons}}
+            <button type="button" data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary btn-sm btn-block" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">{{text}}</button>
+        {{/each}}
+    </div>
+    
+</div>
+{{/if}}
+<style>
+.single-card-bottom-bar {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.single-card-bottom-bar .card-image {
+    background-color: #fff;
+    padding:0;
+}
+
+.single-card-bottom-bar .card-image p {
+    margin: 0;
+    font-size: 13px;
+    color: #4D4D4D;
+    margin-top: 0;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+.single-card-bottom-bar .card-image .account-number{
+    font-weight: bold;
+}
+.single-card-bottom-bar .card-image .carousel-caption
+{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0px 10px;
+}
+.single-card-bottom-bar .card-image .card-number
+{
+        color: #fff;
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+    background: #eb1165; 
+background: -moz-linear-gradient(left,  #eb1165 0%, #b61157 100%); 
+background: -webkit-linear-gradient(left,  #eb1165 0%,#b61157 100%);
+background: linear-gradient(to right,  #eb1165 0%,#b61157 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb1165', endColorstr='#b61157',GradientType=1 );
+}
+
+.full-price-row {
+    color: #fff;
+    text-align: right;
+    margin-top: 20% !important;
+}
+
+.price-bold-txt
+{
+    font-size: 18px;
+    color: #fff;
+}
+</style>

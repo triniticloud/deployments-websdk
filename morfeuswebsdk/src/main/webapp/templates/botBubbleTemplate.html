@@ -1,0 +1,17 @@
+<div class="msg bot-message" id="botMessage">
+    <div class="flex-design">
+        <div class="bot-image-container">
+            {{#if showHideBotIcon}}
+            <img src="images/default/manual-icon.svg" width="30" height="30" class="manual-chat" style="display: none"> {{/if}}
+        </div>
+        <div class="bot-messagefull messageContent">
+            <div class="bot-message-text" id="botMessage">{{chatText this}}</div>
+            <p class="last-seen-tick">
+                <img src="images/double_tick_seen.svg" alt="" width="15" style="margin-right: 3px">
+                <span class="last-seen-time" id="sentTime">
+                    {{now}}</span>
+            </p>
+        </div>
+    </div>
+    {{#displayFeedback}} {{>feedbackDisplay}} {{/displayFeedback}}
+</div>

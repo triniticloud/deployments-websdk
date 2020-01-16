@@ -1,0 +1,18 @@
+<header class="chat-head" id="chatbox-header">
+    <section class="chat-heading">
+        <h3 class="heading-name text-center" style="position:relative;">
+            <span class="pull-left back-image-container">
+                <img class="logo-icon" id="chatBoxBackButton" src="images/default/back-arrow.svg" style="padding-right:10px;width: 25px;" onclick="backButtonAction(event)">
+            </span>
+            <img class="logo-icon" src="images/default/active-bank.png" onclick="backButtonAction(event)">
+            <span class="text-black">{{i18n 'BOT_HEADER'}}</span>
+        </h3>
+    </section>
+</header>
+<div class="lastLogin">
+    <div class="lockIcon">
+        <img src="images/default/lock_icon.svg">
+    </div>
+    <span class="secureLogin">{{i18n 'SECURED_LOGIN'}} </span>
+    <span id="lastLogin">Your last login was on 06/27/2017 12:53:31</span>
+</div>

@@ -1,0 +1,77 @@
+<div class="modal-dialog" role="document" style="position: fixed;top: 50%;transform: translateY(-50%);width:94%;">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="btn-group btn-group-custom" data-toggle="btns" id="teachCategory">
+                        <a class="btn btn-lg btn-default active" href="#UsersmallTalk" data-toggle="tab" aria-expanded="true"> {{i18n 'SMALL_TALK'}}</a>
+                        <a class="btn btn-lg btn-default" href="#Userfaq" data-toggle="tab" aria-expanded="true">{{i18n 'FAQ'}}</a>
+                        <a class="btn btn-lg btn-default" href="#Userbanking" data-toggle="tab" aria-expanded="true">{{i18n 'BANKING'}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="UsersmallTalk">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <textarea name="" id="smallTalkQuestion" rows="4" class="form-control" placeholder="Hi"></textarea>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <p class="activeBlue">{{i18n 'AMENDED_ANS'}}</p>
+                            <textarea name="smallTalkAnswer" id="smallTalkAnswer" rows="4" class="form-control" placeholder="{{i18n 'HOW_ARE_YOU'}}"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-block" type="submit">{{i18n 'SUBMIT'}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Userfaq">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <select name="" id="faqCategory" class="form-control">
+                                <!-- <option value="" class="hide">Faq Category</option> -->
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <select name="" id="faqQuestions" class="form-control">
+                                <option value="" class="hide">{{i18n 'FAQ_QUESTION'}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <textarea name="" id="faqUserQuestion" rows="3" class="form-control" placeholder="{{i18n 'APPLY_LOAN'}}"></textarea>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <p class="activeBlue">{{i18n 'FAQ_ANS'}}</p>
+                            <textarea name="" id="faqUserAnswer" rows="3" class="form-control" placeholder="{{i18n 'CALL'}}"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-block" type="submit">{{i18n 'SUBMIT'}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Userbanking">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <select name="" id="intentCategory" class="form-control">
+                                <!-- <option value="" class="hide">Intent Category</option> -->
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <select name="" id="intents" class="form-control">
+                                <option value="" class="hide">{{i18n 'INTENT'}}</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <p class="activeBlue">{{i18n 'INTENT'}}</p>
+                            <textarea name="" id="bankingUserIntent" rows="3" class="form-control" placeholder="{{i18n 'TRANSFER'}}"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-block" type="submit">{{i18n 'SUBMIT'}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

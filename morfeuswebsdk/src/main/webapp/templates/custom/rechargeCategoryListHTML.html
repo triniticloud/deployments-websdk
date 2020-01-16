@@ -1,0 +1,50 @@
+
+<div class="msg" id="listMessage" style="padding:15px 20px;margin:0px;">
+    <div class="panel panel-default list-custom-template">
+        
+        <div class="custom-panel-radius panel-body list-temp-heading">
+            <h4 class="list-heading ie10-flexalign"> <img src="images/default/active_logo.png" class="img-responsive" width="35">{{listTitle}}</h4>
+        </div>
+    
+    {{#if data.length}}
+        {{#each data}}  
+        {{#is type "row"}} 
+        <div class="custom-panel-radius panel-body panel-row-btn">
+            <div class="row">
+                <div class="col-md-12 flex-parent">
+                    {{#if imageurl}}
+                        <img src="{{imageurl}}" width="50" style="margin-right: 5px;">
+                    {{/if}}
+                        <div class="flex-child long-and-truncated">
+                            <h4 class="list-heading">{{{title}}}</h4> 
+                            {{#if subtitle}}
+                            <p class="list-subtitle">{{subtitle}}</p>
+                            {{/if}}
+                        </div>
+                        {{#if buttons}}
+                        <div class="flex-child short-and-fixed">
+                            {{#each buttons}}
+                            <button type="button" data-button-lifecycle="{{allowMultipleClicks}}" 
+                            data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary btn-outline" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">Select</button>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/is}} 
+        {{#is type "rowbutton" }} {{#if buttons.length}}
+                <div id='rowbuttons'>
+                    {{#each buttons}}
+                    <div data-type='rowbutton' {{#unless @last}} class="row-btn-border" {{/unless}}>
+                        <button data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" type="button" data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary btn-block row-btn" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">{{text}}</button>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}} {{/is}}
+        {{/each}}
+
+           
+    </div>
+</div>
+{{/if}}

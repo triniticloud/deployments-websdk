@@ -1,0 +1,13 @@
+<div class="flexAligndiv2">
+        <a href="#" data-toggle="modal" data-target="#userDevMode" style="align-self: flex-end;">
+            <img src="images/teach.png" class="pull-right mb10 hidden" width="30" onclick="showTeachBox(this)" />
+        </a> {{#with (randNum) }}
+        
+        <div class="radioImage feedback hidden" id='feedback-{{this}}'>
+            <input id="radioYes" type="radio" name="options-{{this}}" value="1" autocomplete="off" checked/>
+            <label class="selectionImage thumbsUpIcon" for="radioYes"></label>
+            <input id="radioNo" type="radio" name="options-{{this}}" value="0" autocomplete="off" />
+            <label class="selectionImage thumbsDownIcon" for="radioNo"></label>
+        </div>
+        {{/with}}
+    </div>

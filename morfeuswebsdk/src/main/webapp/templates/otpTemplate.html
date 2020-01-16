@@ -1,0 +1,102 @@
+<div class="msg bot-message card-msg">
+    <div class="flex-design">
+        <div class="bot-image-container">
+            {{#if showHideBotIcon}}
+                <img src="images/default/default-icon.png" width="30" height="30">
+            {{/if}}
+        </div>
+        <div class="bot-messagefull messageContent">
+            <div id="cards-{{payload.randId}}">
+                <div id="cardsImage-{{payload.randId}}" class="slider mobile-display-swipe center">
+                    {{#each payload.data}}
+                        {{#if element}}
+                            <div class="panel panel-default button-div border-radius-top-20 {{#buttonType templateType}}button-temp{{/buttonType}}">
+                                {{#if element.image.imageUrl}}
+                                    <div class="panel-heading card-image">
+                                        <img src="{{element.image.imageUrl}}" class="img-responsive" />
+                                    </div>
+                                {{/if}}
+                                {{#if element.chart}}
+                                    <div class="panel-heading card-image chart">
+                                        <div class="chart-title">
+                                            <span> {{element.chart.title}} <span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 text-center">
+                                                <div class="chart-holder">
+                                                    <canvas class="chart-area" id="chart-area" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            {{#if element.chart.summaryTitle}}
+                                                <div class="chart-summary-title">
+                                                    <span> {{element.chart.summaryTitle}} </span>
+                                                </div>
+                                            {{/if}}
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    {{#each element.chart.summaries}}
+                                                        {{#if this}}
+                                                            {{#if this.info}}
+                                                                <div class="col-xs-6 chart-summary-point">
+                                                                  <!-- <span class="indicator" style="background-color: {{this.color}}">
+                                                                      <img src="{{this.imageUrl}}" />
+                                                                  </span> -->
+                                                                    <img class="indicator" src="{{this.imageUrl}}" />
+                                                                    <span>
+                                                                        <span class="info">{{this.info}}</span>
+                                                                    </span>
+                                                                </div>
+                                                            {{/if}}
+                                                        {{/if}}
+                                                    {{/each}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#unless element.chart}}
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 buttondesign">
+                                                <h4 class="uob-amex">{{{breaklines element.title.text}}}</h4>
+                                                <p class="account-number">{{{breaklines element.subtitle.text}}}
+                                                <span id="otp-{{../payload.randId}}" class="countdown" style="display:none;"></span></p>
+                                            </div>
+                                            {{#each details}}
+                                                <div class="col-xs-12" class="details">
+                                                    <span class="details-title">{{@key}} :</span>
+                                                    <span class="details-value" style="color:{{color}}">{{{value}}}</span>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                {{/unless}}
+                                {{#each element.buttons}}
+                                  {{#isOtpCard payload ../../payload.randId}}
+                                {{otpTrigger payload ../../payload.randId}}
+                                <div class="timeOverlay" class={{../../payload.randId}}>
+                                    <div class="wrapper">
+                                        <div class="pie spinner"></div>
+                                        <div class="pie filler"></div>
+                                      <div class="mask"></div>
+                                    </div>
+                                </div>
+                                {{/isOtpCard}}
+                                {{#is action 'upload'}}
+                                    <input type='file' style="visibility: hidden;" id="uploadImage" accept="image/gif, image/jpeg, image/png">
+                                {{/is}}
+                                <!--data-is-main-parent=true has been added to mark pointers on the DOM to help in button disabling process-->
+                                  <div data-is-main-parent="true">
+                                    <button type="button" data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary btn-sm btn-block" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} {{#is action 'upload'}} data-uploadUrl='{{uploadUrl}}' data-downloadUrl='{{ downloadUrl}}'{{/is}}data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">{{text}}</button>
+                                  </div>
+                                {{/each}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{{#isNotInDualMode}}
+    <div id="chatHeader">
+        {{#isTablet}}
+            {{#isInPortrait}}
+                {{>mobileheader}}
+            {{/isInPortrait}}
+            {{#isInLandscape}}
+                {{>desktopheader}}
+            {{/isInLandscape}}
+        {{else}}
+            {{#isMobile}}
+                    {{>mobileheader}}
+                {{else}}
+                    {{>desktopheader}}
+            {{/isMobile}}
+        {{/isTablet}}
+    </div>
+    <div class="messageAndFooter">
+        <div class="session-timeout {{#isDesktop}}session-timeout-desktop{{/isDesktop}}"></div>
+        <section class="messages" id="messages"></section>
+        {{>footer}}
+        {{#voiceSdkEnabled}}
+            {{>voiceHints}}
+        {{/voiceSdkEnabled}}
+    </div>
+{{/isNotInDualMode}}

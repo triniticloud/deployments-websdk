@@ -1,0 +1,21 @@
+<div class="msg user-message" id="userMessage" style="flex-direction: column;">
+    <div class="flexAligndiv1">
+        <div class="user-messagefull messageContent flex-design">
+            <div class="user-message-text" id='userMsg'>{{userchatText}}</div>
+            <div class="last-seen-tick text-right text-left">
+                <span class="last-seen-time" id="sentTime">{{now}}</span>
+                <span class="tick-image " id="tick-image">
+                    <img src="images/default/single_tick.svg">
+                </span>
+                <span class="tick-image hidden" id="doubletick-image">
+                    <img src="images/default/double_tick.svg">
+                </span>
+            </div>
+        </div>
+        {{#isInDebugMode}}
+        <a href="#" style="margin:5px;" name="debugInformationLink" data-debugData='' onclick="showDebugInfo(this)" data-toggle="modal" data-target="#auditInfoModal">
+            <svg id="Debuginfoicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 214" style="width: 20px; display:none"><defs><style>.debugiconcolor2{fill:#fff;}</style></defs><title>info-blue</title><g id="layer4"><path id="path2175" class="debugiconcolor1" fill="" d="M235,128A107,107,0,1,1,128,21,107,107,0,0,1,235,128Z" transform="translate(-21 -21)"/></g><g id="layer3"><g id="g15568"><path id="path3339" class="debugiconcolor2" d="M123.31,191.08c5.71-3.32,14.93-14.59,18.36-22.42l-3.53-1.5c-7.1,12.42-18.11,21.54-14.43,6.16l21.75-68.27c-5.68-.47-34.46,4.13-38.95,5l-.71,3.78c9.81.34,11.15,4.35,10.44,7.64L99.93,173.58s-2.05,5.88-2,10.27C98.11,193.86,111.11,197.71,123.31,191.08Z" transform="translate(-21 -21)"/><path id="path7182" class="debugiconcolor2" d="M151.68,75.84a13.89,13.89,0,1,1-13.89-13.9,13.89,13.89,0,0,1,13.89,13.9Z" transform="translate(-21 -21)"/></g></g></svg>
+        </a>
+        {{/isInDebugMode}}
+    </div>
+</div>

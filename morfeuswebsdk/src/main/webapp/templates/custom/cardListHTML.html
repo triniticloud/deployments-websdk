@@ -1,0 +1,183 @@
+<div class="msg" id="listMessage" style="padding:15px 20px;margin:0px;">
+    <div class="panel panel-default list-temp-selectable">
+        
+        <div class="custom-panel-radius panel-body list-temp-heading">
+            <h4 class="list-heading ie10-flexalign"> <img src="images/default/active_logo.png" class="img-responsive" width="35">{{listTitle}}</h4>
+        </div>
+    
+    {{#if data.length}}
+        {{#each data}}  
+        {{#is type "row"}} 
+            {{#if buttons}}
+                {{#each buttons}}
+                    <button type="button" data-button-lifecycle="{{allowMultipleClicks}}" 
+                    data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary content-button" class="btn btn-primary content-button remove-btn-style" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">
+                        <div class="custom-panel-radius panel-body panel-click">
+                            <div class="row">
+                                <div class="col-md-12 flex-display">
+                                    {{#if ../imageurl}}
+                                    <div class="item-center-align flexSpaceBetween">
+                                        <img src="{{../imageurl}}" width="40" class="img-responsive pull-right" width="40">
+                                    </div>
+                                    {{/if}}
+
+                                    <div class="buttonRight flexSpaceBetween block-width">
+                                        <div class="text-left">
+                                            <h4 class="list-heading">{{{../title}}}</h4> 
+                                            {{#if ../subtitle}}
+                                            <p class="list-subtitle">{{../subtitle}}</p>
+                                            {{/if}}
+                                        </div>
+                                        
+                                        <div class="p-l-5">
+                                            <img src="images/default/arrow-click.png" class="click-arrow img-responsive pull-right" width="60">
+                                        </div>
+                                        
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                {{/each}}
+            {{/if}}
+        
+        {{/is}} 
+        {{#is type "rowbutton" }} {{#if buttons.length}}
+                <div id='rowbuttons'>
+                    {{#each buttons}}
+                    <div data-type='rowbutton' {{#unless @last}} class="row-btn-border" {{/unless}}>
+                        <button data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" type="button" data-button-lifecycle="{{allowMultipleClicks}}" data-radio="{{radio}}" data-button-index="{{@index}}" class="btn btn-primary btn-block row-btn" {{#is action 'postback'}} data-value="{{stringify payload}}" {{else}} data-value="{{payload}}" {{/is}} data-type="{{action}}" onclick="/*disableAllCardButtons(this);*/callApi(this);">{{text}}</button>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}} {{/is}}
+        {{/each}}
+
+           
+    </div>
+</div>
+{{/if}}
+
+
+
+<style>
+.content-button
+{
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    color: #000;
+    border: 0;
+    width: 100%;
+}
+.content-button .list-subtitle
+{
+    white-space: pre-wrap;
+}
+.content-button:hover, .content-button:focus, .content-button:active , .content-button:hover:focus
+{
+    background: #f8f8f8;
+    color: #000;
+    outline: none;
+    transition: 0.5s;
+    box-shadow: none;
+}
+.item-center-align {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    width: 15%;
+}
+.list-temp-selectable .list-temp-heading .list-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+.list-temp-selectable .panel-body .row .col-md-12 {
+    padding: 5px 10px;
+}
+.list-temp-selectable .panel-body .row .col-md-12 .flex-align-right
+{
+    margin-right: 5px;
+}
+.list-temp-selectable .btn-primary.btn-block
+{
+    background-color: transparent;
+    border-color: transparent;
+    color: #ab1b5c;
+    border-radius: 0;
+}
+
+
+.list-temp-selectable .btn-primary.btn-block:hover, .list-temp-selectable .btn-primary.btn-block:active, .list-temp-selectable .btn-primary.btn-block:focus
+{
+     background-color: #ED1164;
+    border-color: transparent;
+    color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+.list-temp-selectable .btn-primary.btn-block:hover:focus
+{
+    background-color: #ED1164;
+    border-color: #ED1164;
+    color: #fff;
+    outline: none;
+}
+.remove-btn-style
+{
+    cursor: auto;
+}
+.remove-btn-style:hover, .remove-btn-style:focus, .remove-btn-style:active, .remove-btn-style:hover:focus
+{
+    background-color: #fff;
+    outline: none;
+    box-shadow: none;
+}
+
+.block-width
+{
+    width: 85%;
+}
+.block-width .text-left
+{
+    width: 90%;
+}
+.block-width .p-l-5
+{
+    width: 10%;
+}
+.list-temp-selectable .panel-body .click-arrow
+{
+    width: 60px;
+}
+.list-temp-selectable .panel-body .row .col-md-12 .flexSpaceBetween .p-l-5
+{
+    width: 15px;
+}
+.list-temp-selectable .list-heading
+{
+    font-size: 12px;
+    margin:0;
+    white-space: normal;
+}
+.list-temp-selectable .list-subtitle {
+    font-size: 13px;
+    font-weight: bold;
+    margin:0;
+    margin-top: 2px;
+    color: #3a3a3a;
+    white-space: normal;
+}
+.list-temp-selectable .panel-body {
+    border-bottom: 1px solid #dedede;
+    padding: 0px 15px;
+}
+.list-temp-selectable {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+</style>

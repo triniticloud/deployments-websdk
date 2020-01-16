@@ -1,0 +1,14 @@
+<div id="nav_container" class="flex-align-center paddingtb5">
+    <div class="flexOrder2 scrollRemove">
+        <ul class="scrollTags list-inline flexOrder2" id="quickTagScroll" onclick="quickinit(event)">
+        </ul>
+    </div>
+    {{#isDesktop}}
+        <div class="arrowBtns flexOrder1" id="prev_nav" onclick='moveLeft();'>
+            <img src="images/default/left.svg" alt="">
+        </div>
+        <div class="arrowBtns flexOrder3" id="next_nav" onclick='moveRight();'>
+            <img src="images/default/Right.svg" alt="">
+        </div>
+    {{/isDesktop}}
+</div>

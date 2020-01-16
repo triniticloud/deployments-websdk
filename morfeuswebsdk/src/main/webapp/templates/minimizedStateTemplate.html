@@ -1,0 +1,19 @@
+<div id="minimizedstate-container" class="minimizedstate" style="display: none">
+            <header class="chat-head chat-head-desktop">
+                <section class="chat-heading">
+                    <h3 class="heading-name" style="position:relative;">
+                    <span class="pull-left"><img class="logo-icon" src="images/default/icon.png"></span>
+                    <span id="headingText">{{i18n 'BOT_HEADER'}}</span>
+                   
+                <span class="pull-right openicon"><span><img  src="images/minimize.svg" onclick="hideMinimizedState(event)"></span>
+                <span ><img  src="images/close.svg" onclick="logOutChat(event)"></span></span>
+                     </h3>
+                </section>
+            </header>
+ 
+ <footer class="footer-form {{#isDesktop}}footer-form-desktop{{/isDesktop}}">
+            <div class="display-flex footerInput">
+                <input type="text" placeholder="How may I help you?"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="-1" disabled />
+            </div>
+        </footer>
+</div>

@@ -1,0 +1,34 @@
+<footer class="footer-form {{#isDesktop}}footer-form-desktop{{/isDesktop}}">
+      {{>quickTags}}
+    <div class="input-suggestions disable-copy" id="suggestion-box" onclick="searchClick(event)"></div>
+    <div class="display-flex footerInput">
+        <div class="input-group-icon">
+            <input type="text" placeholder=" {{i18n 'FOOTER_PLACEHOLDER'}}" id="query" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                tabindex="-1" onkeypress="querykeypress(event)" onkeyup="querykeyup(event)" /> {{#micSupported}}
+            <button class="image-button mic-off" id="micBtn" type="button" onclick="handleSpeech()"></button>
+            {{/micSupported}}
+        </div>
+        <div id="send" type="button" class="btn btn_send" onclick="send()">
+            <img src="images/default/sent-mail.svg" height="15" width="17" alt="">
+        </div>
+    </div>
+</footer>
+<style>
+    .input-suggestions {
+        position: absolute;
+        bottom: 50px;
+        background-color: #fff;
+        min-width: 100%;
+    }
+
+    .input-suggestions .panel-body {
+        padding: 10px 15px;
+        border-bottom: 1px solid #ccc;
+        font-size: 12px;
+    }
+
+    .input-suggestions .panel-body:hover {
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+</style>
